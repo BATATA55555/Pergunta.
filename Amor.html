@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pergunta importante...</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    h1 {
+        margin-top: 80px;
+        color: #fff;
+        font-size: 26px;
+    }
+
+    .container {
+        margin-top: 50px;
+        position: relative;
+        height: 300px;
+    }
+
+    button {
+        padding: 15px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.2s;
+    }
+
+    #sim {
+        left: 30%;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #nao {
+        left: 60%;
+        background-color: #f44336;
+        color: white;
+    }
+
+    #mensagem {
+        display: none;
+        margin-top: 40px;
+        font-size: 22px;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Amor, Vc me ama de vdd?? 💖</h1>
+
+<div class="container">
+    <button id="sim">SIM 😍</button>
+    <button id="nao">NÃO 😢</button>
+</div>
+
+<div id="mensagem">💔 Eu sabia... mas tudo bem 😔</div>
+
+<script>
+    const sim = document.getElementById("sim");
+    const nao = document.getElementById("nao");
+    const mensagem = document.getElementById("mensagem");
+
+    function moverBotao() {
+        const largura = window.innerWidth - 100;
+        const altura = window.innerHeight - 100;
+
+        const x = Math.random() * largura;
+        const y = Math.random() * altura;
+
+        sim.style.left = x + "px";
+        sim.style.top = y + "px";
+    }
+
+    sim.addEventListener("mouseover", moverBotao);
+
+    sim.addEventListener("touchstart", function(e) {
+        e.preventDefault();
+        moverBotao();
+    });
+
+    nao.addEventListener("click", function() {
+        mensagem.style.display = "block";
+    });
+</script>
+
+</body>
+</html>
